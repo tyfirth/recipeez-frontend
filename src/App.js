@@ -1,6 +1,5 @@
 import React from 'react';
 import RecipeContainer from './containers/RecipeContainer'
-import { connect } from 'react-redux'
 
 class App extends React.Component {
 
@@ -13,10 +12,5 @@ class App extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     recipes: state.recipes
-//   }
-// }
 
-export default connect(null, {fetchRecipes})(App);
+export default App;

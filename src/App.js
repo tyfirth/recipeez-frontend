@@ -1,23 +1,13 @@
 import React from 'react';
-import RecipeForm from './components/RecipeForm'
+import RecipeContainer from './containers/RecipeContainer'
 import { connect } from 'react-redux'
-import fetchRecipes from './actions/fetchRecipes'
 
 class App extends React.Component {
-
-
-
-  componentDidMount() {
-    this.props.fetchRecipes()
-  }
-
-
 
   render() {
     return (
       <div className="App">
-        App
-        <RecipeForm />
+        <RecipeContainer />
       </div>
     );
   }

@@ -11,10 +11,14 @@ class RecipeContainer extends Component {
     this.props.fetchRecipes()
   }
 
+  // componentDidMount() {
+  //   this.handleFetch()
+  // }
+
   render() {
     return (
       <div>
-        <RecipeForm />
+        <RecipeForm /><br/>
         <RecipesList recipes={this.props.recipes} />
       </div>
     )

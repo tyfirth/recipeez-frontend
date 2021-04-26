@@ -9,7 +9,7 @@ class RecipeForm extends Component {
   //   super(props);
   //
   //   this.state = {
-  //     text: ''
+  //     query: ''
   //   }
   // }
   //
@@ -21,11 +21,24 @@ class RecipeForm extends Component {
   //   })
   // }
 
+  // handleOnSubmit = event => {
+  //   event.preventDefault();
+  //   this.props.handleFetch(this.state.query)
+  // }
+
+  
+
   render() {
     return (
       <div>
-      RecipeForm
-
+        <form onSubmit={this.handleOnSubmit}>
+        <label>Whatcha hungry for?</label><br/>
+          <input
+          type='text'
+          placeholder='Food Search'
+          />
+          <input type='submit' />
+        </form>
       </div>
 
     )

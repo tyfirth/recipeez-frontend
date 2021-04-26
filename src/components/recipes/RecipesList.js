@@ -3,8 +3,6 @@ import RecipeCard from './RecipeCard'
 
 const RecipesList = (props) => {
 
-  console.log(props)
-
   return (
     <div>
     Recipe List

@@ -19,10 +19,5 @@ export function fetchRecipes() {
       type: 'FETCH_RECIPES',
       payload: recipes
     }))
-
   }
-
-
-  //dispatch goes here
-
 }

@@ -5,28 +5,20 @@ import { connect } from 'react-redux';
 
 class RecipeForm extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = {
-  //     query: ''
-  //   }
-  // }
-  //
-  //
-  //
-  // handleOnChange = event => {
-  //   this.setState({
-  //     name: event.target.value
-  //   })
-  // }
+  constructor(props) {
+    super(props);
 
-  // handleOnSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.handleFetch(this.state.query)
-  // }
+    this.state = {
+      query: ''
+    }
+  }
 
-  
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.handleFetch(this.state.query)
+  }
+
+
 
   render() {
     return (
@@ -36,6 +28,8 @@ class RecipeForm extends Component {
           <input
           type='text'
           placeholder='Food Search'
+          onChange={event => this.setState({query: event.target.value})}
+          value={this.state.value}
           />
           <input type='submit' />
         </form>

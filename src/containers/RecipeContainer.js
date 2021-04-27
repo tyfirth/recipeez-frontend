@@ -4,16 +4,17 @@ import RecipeCard from '../components/recipes/RecipeCard'
 import RecipesList from '../components/recipes/RecipesList'
 import { connect } from 'react-redux'
 import {fetchRecipes} from '../actions/fetchRecipes'
+import {getRandomRecipes} from '../actions/getRandomRecipes'
 
 class RecipeContainer extends Component {
 
-  componentDidMount() {
-    this.props.fetchRecipes()
-  }
-
   // componentDidMount() {
-  //   this.handleFetch()
+  //   this.props.fetchRecipes()
   // }
+
+  componentDidMount() {
+    this.props.getRandomRecipes()
+  }
 
   render() {
     return (
@@ -32,4 +33,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {fetchRecipes})(RecipeContainer);
+export default connect(mapStateToProps, {fetchRecipes, getRandomRecipes})(RecipeContainer);

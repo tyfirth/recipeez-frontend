@@ -6,17 +6,6 @@ import RecipeContainer from './containers/RecipeContainer'
 
 class App extends React.Component {
 
-  // componentDidMount(){
-  //   fetch(randomRecipes, {
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(data => console.log(data))
-  // }
-
   render() {
     return (
       <div className="App">

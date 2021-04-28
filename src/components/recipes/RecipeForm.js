@@ -5,17 +5,13 @@ import { connect } from 'react-redux';
 
 class RecipeForm extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
+    state = {
       query: ''
     }
-  }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.handleFetch(this.state.query)
+    this.props.handleSearch(this.state.query)
   }
 
 

@@ -6,20 +6,32 @@ import { connect } from 'react-redux'
 import {fetchRecipes} from '../actions/fetchRecipes'
 import {getRandomRecipes} from '../actions/getRandomRecipes'
 
+let apiKey = process.env.REACT_APP_apiKey
+
 class RecipeContainer extends Component {
 
-  // componentDidMount() {
-  //   this.props.fetchRecipes()
-  // }
+state = {
+  recipes: []
+}
 
   componentDidMount() {
-    this.props.getRandomRecipes()
+    if (this.state.recipes.length === 0) {
+      this.props.getRandomRecipes()
+    } else {
+        this.props.handleSearch()
+    }
+  }
+
+  handleSearch = (query) => {
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=3&apiKey=${apiKey}`)
+      .then(resp => resp.json())
+      .then(data => console.log(data))
   }
 
   render() {
     return (
       <div>
-        <RecipeForm /><br/>
+        <RecipeForm handleSearch={this.handleSearch} /><br/>
         <RecipesList recipes={this.props.recipes} />
       </div>
     )

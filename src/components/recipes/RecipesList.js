@@ -3,12 +3,10 @@ import RecipeCard from './RecipeCard'
 
 const RecipesList = (props) => {
 
-console.log(props)
 
   return (
     <div>
-    Recipe List
-      {props.recipes.map(recipe => <li key={recipe.id}>{recipe.name} - {recipe.description} </li>)}
+      {props.recipes.map(recipe => <img key={recipe.id} src={recipe.image} alt={recipe.name} />)}
       <RecipeCard />
     </div>
   )

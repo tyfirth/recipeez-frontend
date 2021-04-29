@@ -8,6 +8,9 @@ export default function recipeReducer(state = {recipes: []}, action) {
     case 'RANDOM_RECIPES':
       return {recipes: action.payload}
 
+    case 'RECIPE_SEARCH':
+      return {recipes: action.payload}
+
     default:
       return state
   }

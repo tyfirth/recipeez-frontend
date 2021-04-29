@@ -5,6 +5,7 @@ import RecipesList from '../components/recipes/RecipesList'
 import { connect } from 'react-redux'
 import {fetchRecipes} from '../actions/fetchRecipes'
 import {getRandomRecipes} from '../actions/getRandomRecipes'
+// import {handleSearch} from '../actions/handleSearch'
 
 let apiKey = process.env.REACT_APP_apiKey
 
@@ -22,12 +23,6 @@ state = {
     }
   }
 
-  handleSearch = (query) => {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=3&apiKey=${apiKey}`)
-      .then(resp => resp.json())
-      .then(data => console.log(data))
-  }
-
   render() {
     return (
       <div>
@@ -36,6 +31,18 @@ state = {
       </div>
     )
   }
+
+
+  handleSearch = (query) => {
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=3&apiKey=${apiKey}`)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          recipes: data.results
+        })
+      })
+  }
+
 }
 
 const mapStateToProps = state => {

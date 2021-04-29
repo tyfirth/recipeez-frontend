@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeCard from './RecipeCard'
+import { connect } from 'react-redux'
 
 const RecipesList = (props) => {
 
@@ -12,5 +13,6 @@ const RecipesList = (props) => {
   )
 
 }
+
 
 export default RecipesList;

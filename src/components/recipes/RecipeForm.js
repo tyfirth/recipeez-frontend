@@ -17,10 +17,11 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <div>
+      <div class="search-form">
         <form onSubmit={this.handleOnSubmit}>
         <label>Whatcha hungry for?</label><br/>
           <input
+          class='border-black'
           type='text'
           placeholder='Food Search'
           onChange={event => this.setState({query: event.target.value})}

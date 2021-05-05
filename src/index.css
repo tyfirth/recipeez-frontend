@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.search-form {
+  @apply font-bold border-black;
+}

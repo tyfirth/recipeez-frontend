@@ -5,7 +5,7 @@ import RecipesList from '../components/recipes/RecipesList'
 import { connect } from 'react-redux'
 import {fetchRecipes} from '../actions/fetchRecipes'
 import {getRandomRecipes} from '../actions/getRandomRecipes'
-// import {handleSearch} from '../actions/handleSearch'
+import {handleSearch} from '../actions/handleSearch'
 
 let apiKey = process.env.REACT_APP_apiKey
 
@@ -23,10 +23,13 @@ state = {
     }
   }
 
+
   render() {
     return (
-      <div>
+      <div class='bg-blue-400'>
+        <div>
         <RecipeForm handleSearch={this.handleSearch} /><br/>
+        </div>
         <RecipesList recipes={this.props.recipes} />
       </div>
     )
@@ -52,4 +55,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {fetchRecipes, getRandomRecipes})(RecipeContainer);
+export default connect(mapStateToProps, {fetchRecipes, getRandomRecipes, handleSearch})(RecipeContainer);

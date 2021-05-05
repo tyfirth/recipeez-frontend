@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-// let apiKey = process.env.REACT_APP_apiKey
-//
-// let random = `https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`
-//
-// let withQ = `https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=${apiKey}`
-//
+import {connect} from 'react-redux'
+
 class RecipeCard extends Component {
-//
-//   componentDidMount() {
-//     fetch(withQ)
-//       .then(resp => resp.json())
-//       .then(data => console.log(data))
-//   }
+
+  state = {
+    recipes: []
+  }
 
   render() {
     return (
-      <div>
-        Recipe Card
+      <div class='flex'>
+        {this.props.recipes.map(recipe =>
+
+          <div class='p-6 max-w-sm mx-auto rounded-xl shadow-xl flex items-center space-x-4 place-content-center'>
+            <div class='food-name'>
+              <h3 class='font-bold'>{recipe.title}</h3>
+            </div>
+            <img class='mx-auto  p-5 max-w-sm flex-shrink self-auto'  key={recipe.id} src={recipe.image} alt={recipe.name} />
+            <button class='absolute ...'>Click to Favorite </button>
+          </div>
+        )}
+
       </div>
     )
   }
 }
 
-export default RecipeCard;
+const mapStateToProps = state => {
+  return {
+    recipes: state.recipes
+  }
+}
+
+export default connect(mapStateToProps)(RecipeCard);

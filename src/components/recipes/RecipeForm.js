@@ -17,17 +17,17 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <div class="search-form">
+      <div className="search-form" class='flex justify-center p-4'>
         <form onSubmit={this.handleOnSubmit}>
         <label>Whatcha hungry for?</label><br/>
           <input
-          class='border-black'
+          class='border border-transparent focus:outline-none focus:ring-2 focus:ring-bg-blue-700 hover:border-blue-500 focus:border-transparent rounded p-2'
           type='text'
           placeholder='Food Search'
           onChange={event => this.setState({query: event.target.value})}
           value={this.state.value}
           />
-          <input type='submit' />
+          <input type='submit' class='rounded-md p-2 mx-auto bg-blue-500 hover:bg-blue-700 text-bold text-white' />
         </form>
       </div>
 

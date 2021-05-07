@@ -9,27 +9,28 @@ class RecipeCard extends Component {
 
   render() {
     return (
-      <div class='flex'>
+      <div className='recipe-card' class='border p-6 max-w-xl mx-auto rounded-xl shadow-xl bg-white space-y-3 '>
         {this.props.recipes.map(recipe =>
+          <div key={recipe} class='font-bold'>
 
-          <div class='p-6 max-w-sm mx-auto rounded-xl shadow-xl flex items-center space-x-4 place-content-center'>
-            <div class='food-name'>
-              <h3 class='font-bold'>{recipe.title}</h3>
-            </div>
-            <img class='mx-auto  p-5 max-w-sm flex-shrink self-auto'  key={recipe.id} src={recipe.image} alt={recipe.name} />
-            <button class='absolute ...'>Click to Favorite </button>
+            <h3 class='text-center'>{recipe.title}</h3>
+
+            <img src={recipe.image} alt={recipe.name} class='p-5' />
+
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded mx-auto flex justify-center"
+              onClick={this.handleOnClick}
+              >Click to Favorite
+            </button>
+
           </div>
         )}
-
       </div>
+
     )
   }
+
 }
 
-const mapStateToProps = state => {
-  return {
-    recipes: state.recipes
-  }
-}
 
-export default connect(mapStateToProps)(RecipeCard);
+export default RecipeCard;

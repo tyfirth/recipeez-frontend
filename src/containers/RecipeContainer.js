@@ -23,6 +23,13 @@ state = {
     }
   }
 
+//   componentDidUpdate() {
+//     this.props.handleSearch()
+//     console.log("Updated!");
+//
+// }
+
+
 
   render() {
     return (
@@ -30,21 +37,21 @@ state = {
         <div>
         <RecipeForm handleSearch={this.handleSearch} /><br/>
         </div>
-        <RecipesList recipes={this.props.recipes} />
+        <RecipesList recipes={this.props.recipes} handleSearch={this.handleSearch}/>
       </div>
     )
   }
 
 
-  handleSearch = (query) => {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=3&apiKey=${apiKey}`)
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          recipes: data.results
-        })
-      })
-  }
+  // handleSearch = (query) => {
+  //   fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=3&apiKey=${apiKey}`)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       this.setState({
+  //         recipes: data.results
+  //       })
+  //     })
+  // }
 
 }
 

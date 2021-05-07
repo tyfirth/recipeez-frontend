@@ -18,6 +18,7 @@ class RecipeForm extends Component {
   render() {
     return (
       <div class="search-form">
+        <div class='bg-blue-200 border-black'>
         <form onSubmit={this.handleOnSubmit}>
         <label>Whatcha hungry for?</label><br/>
           <input
@@ -29,6 +30,7 @@ class RecipeForm extends Component {
           />
           <input type='submit' />
         </form>
+        </div>
       </div>
 
     )

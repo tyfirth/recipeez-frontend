@@ -1,4 +1,4 @@
-let apiKey = process.env.REACT_APP_apiKey;
+const apiKey = process.env.REACT_APP_apiKey;
 
 export function handleSearch(query) {
 
@@ -10,5 +10,7 @@ export function handleSearch(query) {
         type: 'RECIPE_SEARCH',
         payload: data.recipes
       }))
+      .then(resp => resp.json())
+      .then(data => console.log(data.recipes))
     }
   }

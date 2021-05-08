@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import {handleSearch} from '../actions/handleSearch';
 import uuid from 'uuid';
-// import { addRecipe } from './actions/recipes';
+import {connect} from 'react-redux'
+
 
 class RecipeForm extends Component {
 
@@ -35,4 +37,4 @@ class RecipeForm extends Component {
   }
 }
 
-export default RecipeForm;
+export default connect(null, {handleSearch})(RecipeForm);

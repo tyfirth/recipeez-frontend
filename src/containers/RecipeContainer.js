@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import RecipeForm from '../components/recipes/RecipeForm';
-import RecipeCard from '../components/recipes/RecipeCard';
+import RecipeForm from '../components/RecipeForm';
+import RecipeCard from '../components/RecipeCard';
 // import {fetchRecipes} from '../actions/fetchRecipes';
-// import {getRandomRecipes} from '../actions/getRandomRecipes';
-// import {handleSearch} from '../actions/handleSearch';
-// import {connect} from 'react-redux'
+import {getRandomRecipes} from '../actions/getRandomRecipes';
+import {handleSearch} from '../actions/handleSearch';
 
-const apiKey = process.env.REACT_APP_apiKey
+import {connect} from 'react-redux'
 
 class RecipeContainer extends Component {
 
@@ -15,15 +14,30 @@ class RecipeContainer extends Component {
   }
 
 
+componentDidMount() {
+  this.state.recipes.empty? this.props.handleSearch() : this.props.getRandomRecipes()
+
+
+}
+
 
   render() {
     return (
       <div className='recipe-container' class='bg-yellow-100'>
-        <RecipeCard recipes={this.state.recipes} />
+        <RecipeCard recipes={this.props.recipes} />
       </div>
     )
   }
 
 }
 
-export default RecipeContainer;
+const mapStateToProps = state => {
+  return {
+    recipes: state.recipes,
+    query: state.query
+  }
+}
+
+
+
+export default connect(mapStateToProps, {getRandomRecipes, handleSearch})(RecipeContainer);

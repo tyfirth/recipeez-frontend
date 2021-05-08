@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import MenuContainer from './MenuContainer'
 import RecipeContainer from './RecipeContainer'
-import RecipeForm from '../components/recipes/RecipeForm'
+import RecipeForm from '../components/RecipeForm'
+import {handleSearch} from '../actions/handleSearch'
+import {connect} from 'react-redux'
 
 class HomeContainer extends Component {
 
@@ -10,7 +12,7 @@ class HomeContainer extends Component {
     return (
       <div className='HomeContainer'>
         <MenuContainer />
-        <RecipeForm />
+        <RecipeForm handleSearch={this.handleSearch}/>
         <RecipeContainer />
       </div>
     )
@@ -22,4 +24,4 @@ class HomeContainer extends Component {
 
 
 
-export default HomeContainer;
+export default connect(null, {handleSearch})(HomeContainer);

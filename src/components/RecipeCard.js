@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
 
 class RecipeCard extends Component {
 
-  state = {
-    recipes: []
-  }
 
   render() {
+
     return (
       <div className='recipe-card' class='border p-6 max-w-xl mx-auto rounded-xl shadow-xl bg-white space-y-3 '>
         {this.props.recipes.map(recipe =>

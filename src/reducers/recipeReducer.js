@@ -9,6 +9,7 @@ export default function recipeReducer(state = {recipes: []}, action) {
       return {recipes: action.payload}
 
     case 'RECIPE_SEARCH':
+    debugger;
       return {recipes: action.payload}
 
     default:

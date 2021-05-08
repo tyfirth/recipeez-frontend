@@ -13,7 +13,7 @@ class HomeContainer extends Component {
       <div className='HomeContainer'>
         <MenuContainer />
         <RecipeForm handleSearch={this.handleSearch}/>
-        <RecipeContainer />
+        <RecipeContainer apiKey={this.props.apiKey}/>
       </div>
     )
   }

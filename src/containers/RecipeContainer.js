@@ -16,8 +16,6 @@ class RecipeContainer extends Component {
 
 componentDidMount() {
   this.state.recipes.empty? this.props.handleSearch() : this.props.getRandomRecipes()
-
-
 }
 
 
@@ -33,8 +31,7 @@ componentDidMount() {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes,
-    query: state.query
+    recipes: state.recipes
   }
 }
 

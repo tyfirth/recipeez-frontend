@@ -5,6 +5,7 @@ class About extends Component {
     return (
       <div className='about' class='hover:text-white'>
         <p> This is the About Section.</p>
+        
       </div>
     )
   }

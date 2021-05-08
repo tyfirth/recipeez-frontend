@@ -21,7 +21,7 @@ class RecipeCard extends Component {
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded mx-auto flex justify-center"
               onClick={this.handleOnClick}
               >Click to Favorite
-            </button>
+              </button>
 
           </div>
         )}

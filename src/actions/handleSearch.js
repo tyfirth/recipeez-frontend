@@ -8,7 +8,7 @@ export function handleSearch(query) {
       .then(resp => resp.json())
       .then(data => dispatch({
         type: 'RECIPE_SEARCH',
-        payload: data.results
+        payload: data.recipes
       }))
     }
   }

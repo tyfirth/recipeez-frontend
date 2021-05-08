@@ -1,2 +1,15 @@
 
 let spoonTestURL = `https://api.spoonacular.com/recipes/complexSearch?query=tacos&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=3&apiKey=${apiKey}`
+
+sample presentational component:
+const ComponentName = props => <div onClick={props.handleClick}>I am just happy.</div>
+
+componentDidMount() {
+  fetch(`https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`)
+    .then(resp =>resp.json())
+    .then(data => {
+      this.setState({
+        recipes: data.recipes
+      })
+    })
+}

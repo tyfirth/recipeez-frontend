@@ -18,6 +18,13 @@ componentDidMount() {
   this.state.recipes.empty? this.props.handleSearch() : this.props.getRandomRecipes()
 }
 
+// componentDidUpdate(prevProps) {
+//   debugger;
+//
+//   console.log('Recipe Container updated!')
+// }
+//
+
 
   render() {
     return (

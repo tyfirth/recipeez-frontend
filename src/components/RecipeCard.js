@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import {addRecipe} from '../actions/addRecipe'
+import {connect} from 'react-redux'
+
 
 class RecipeCard extends Component {
 
+  // componentDidUpdate(prevProps) {
+  //   debugger;
+  //   console.log('Recipe Card updated!')
+  // }
+
+  handleOnClick = (event) => {
+    this.props.addRecipe(event)
+  }
 
   render() {
 
@@ -29,5 +40,11 @@ class RecipeCard extends Component {
 
 }
 
+const mapStateToProps = state => {
+  return {
+    recipes: state.recipes
+  }
+}
 
-export default RecipeCard;
+
+export default connect(mapStateToProps, {addRecipe})(RecipeCard);

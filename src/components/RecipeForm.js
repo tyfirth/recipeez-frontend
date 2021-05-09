@@ -26,6 +26,7 @@ class RecipeForm extends Component {
           class='border border-transparent focus:outline-none focus:ring-2 focus:ring-bg-blue-700 hover:border-blue-500 focus:border-transparent rounded p-2'
           type='text'
           placeholder='Food Search'
+          name='query'
           onChange={event => this.setState({query: event.target.value})}
           value={this.state.value}
           />

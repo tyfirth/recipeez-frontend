@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecipeForm from '../components/RecipeForm';
 import RecipeCard from '../components/RecipeCard';
+import RecipeList from '../components/RecipeList'
 // import {fetchRecipes} from '../actions/fetchRecipes';
 import {getRandomRecipes} from '../actions/getRandomRecipes';
 import {handleSearch} from '../actions/handleSearch';
@@ -29,7 +30,7 @@ componentDidMount() {
   render() {
     return (
       <div className='recipe-container' class='bg-yellow-100'>
-        <RecipeCard recipes={this.props.recipes} />
+        <RecipeList recipes={this.props.recipes} />
       </div>
     )
   }

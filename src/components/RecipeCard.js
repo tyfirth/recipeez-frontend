@@ -5,13 +5,18 @@ import {connect} from 'react-redux'
 
 class RecipeCard extends Component {
 
+// state = {
+//   recipes: []
+// }
+
+
   // componentDidUpdate(prevProps) {
   //   debugger;
   //   console.log('Recipe Card updated!')
   // }
 
-  handleOnClick = (event) => {
-    this.props.addRecipe(event)
+  handleOnClick = (recipe) => {
+    this.props.addRecipe(recipe)
   }
 
   render() {
@@ -19,6 +24,7 @@ class RecipeCard extends Component {
     return (
       <div className='recipe-card' class='border p-6 max-w-xl mx-auto rounded-xl shadow-xl bg-white space-y-3 '>
         {this.props.recipes.map(recipe =>
+
           <div key={recipe} class='font-bold'>
 
             <h3 class='text-center'>{recipe.title}</h3>
@@ -27,7 +33,7 @@ class RecipeCard extends Component {
 
             <button
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded mx-auto flex justify-center"
-              onClick={this.handleOnClick}
+              onClick={ ({recipe}) => this.handleOnClick(recipe)}
               >Click to Favorite
               </button>
 

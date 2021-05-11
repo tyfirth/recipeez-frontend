@@ -2,7 +2,7 @@
 let apiKey = process.env.REACT_APP_apiKey;
 
 
-let random = `https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`
+let random = `https://api.spoonacular.com/recipes/random?number=3&apiKey=${apiKey}`
 
 export function getRandomRecipes() {
 

@@ -1,7 +1,11 @@
-export const addRecipe = (data) => {
+export const addRecipe = (recipe) => {
   debugger;
 
   return (dispatch) => {
+
+    fetch('', {
+
+    })
 
   }
 

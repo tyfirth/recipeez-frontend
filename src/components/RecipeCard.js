@@ -5,20 +5,6 @@ import {connect} from 'react-redux'
 
 class RecipeCard extends Component {
 
-// state = {
-//   recipes: []
-// }
-
-
-  // componentDidUpdate(prevProps) {
-  //   debugger;
-  //   console.log('Recipe Card updated!')
-  // }
-
-  handleOnClick = (recipe) => {
-    this.props.addRecipe(recipe)
-  }
-
   render() {
 
     return (
@@ -33,7 +19,7 @@ class RecipeCard extends Component {
 
             <button
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded mx-auto flex justify-center"
-              onClick={ ({recipe}) => this.handleOnClick(recipe)}
+              onClick={this.handleOnClick}
               >Click to Favorite
               </button>
 

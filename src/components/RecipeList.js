@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import RecipeCard from '../components/RecipeCard'
 
-const RecipeList = ({recipes}) => (
-  <div className='recipe-list'>
-  {recipes.map(recipe => <RecipeCard recipe={recipe} key={recipe.id} />)}
+const RecipeList = (props) => {
+  return (
+    <div>
+      {props.recipes.map(recipe =>
+        <li key={recipe.id}>{recipe.title} - {recipe.summary}</li>
+      )}
+    <RecipeCard recipes={props.recipes} />
+    </div>
 
-  </div>
-)
+  )
+}
 
 export default RecipeList;

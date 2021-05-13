@@ -11,8 +11,8 @@ export function handleSearch(query) {
         type: 'RECIPE_SEARCH',
         payload: data.recipes
       }))
-      // .then(resp => resp.json())
-      // .then(data => console.log(data.recipes))
+      .then(resp => resp.json())
+      .then(data => console.log(data.recipes))
     }
 
   }

@@ -5,7 +5,9 @@ const RecipeList = (props) => {
   return (
     <div>
       {props.recipes.map(recipe =>
-        <li key={recipe.id}><RecipeCard recipe={recipe} /></li>
+        <li key={recipe.id}>
+          <RecipeCard recipe={recipe} />
+        </li>
       )}
 
     </div>

@@ -9,7 +9,8 @@ class RecipeForm extends Component {
 
     state = {
       title: '',
-      summary: ''
+      summary: '',
+      image: ''
     }
 
   handleOnSubmit = event => {
@@ -17,7 +18,8 @@ class RecipeForm extends Component {
     this.props.addRecipe(this.state)
     this.setState({
       title: '',
-      summary: ''
+      summary: '',
+      image: ''
     })
   }
 
@@ -46,6 +48,9 @@ class RecipeForm extends Component {
         <input type='text' placeholder='Title' name='title' class='border focus:outline-none focus:ring-2 focus:ring-bg-blue-700 hover:border-blue-500 focus:border-transparent rounded p-2 my-2' value={this.state.title} onChange={this.handleChange}/>
         <br/>
         <input type='text' placeholder='Summary'           class='border focus:outline-none focus:ring-2 focus:ring-bg-blue-700 hover:border-blue-500 focus:border-transparent rounded p-2 my-2' name='summary' value={this.state.summary} onChange={this.handleChange}/>
+        <br/>
+        <input type='text' placeholder='Image'           class='border focus:outline-none focus:ring-2 focus:ring-bg-blue-700 hover:border-blue-500 focus:border-transparent rounded p-2 my-2' name='image' value={this.state.image} onChange={this.handleChange}/>
+
 
 
         <br/>

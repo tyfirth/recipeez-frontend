@@ -1,6 +1,6 @@
 export function favoriteRecipe(recipe) {
   let faveStatus = recipe.isFavorite
-  debugger;
+  // debugger;
 
   return (dispatch) => {
     fetch(`http://localhost:3001/api/v1/recipes/${recipe.id}`, {
@@ -14,7 +14,8 @@ export function favoriteRecipe(recipe) {
     .then(resp => resp.json())
     .then(data => dispatch({
       type: 'FAVORITE_RECIPE',
-      payload: recipe.isFavorite
+      payload: data.isFavorite
     }))
+    .catch(err => console.log(err))
   }
 }

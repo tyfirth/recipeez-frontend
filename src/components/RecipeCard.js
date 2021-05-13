@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {addRecipe} from '../actions/addRecipe'
 import {favoriteRecipe} from '../actions/favoriteRecipe'
+import {deleteRecipe} from '../actions/deleteRecipe'
 import {connect} from 'react-redux'
 import {Route, Link} from 'react-router-dom'
 
@@ -11,8 +12,6 @@ class RecipeCard extends Component {
     recipe: this.props.recipe
   }
 
-
-
   handleOnClick = (event) => {
     let faveStatus = this.state.recipe.isFavorite
     // debugger;
@@ -20,6 +19,11 @@ class RecipeCard extends Component {
       recipe: {...this.state.recipe, isFavorite: !faveStatus}
     })
     this.props.favoriteRecipe(this.state.recipe)
+    // event.target.reset();
+  }
+
+  removeRecipe = (event) => {
+    this.props.deleteRecipe(this.state.recipe.id)
   }
 
 
@@ -43,6 +47,10 @@ render() {
       to={`/recipes/${this.props.recipe.id}`}
       >{this.props.recipe.title}</Link>
 
+      <div>
+        <button onClick={this.removeRecipe}
+          class="bg-red-500 hover:bg-red-700 text-white font-bold p-3 rounded mx-auto flex object-right-top">Delete Recipe</button>
+      </div>
 
 
     </div>
@@ -58,4 +66,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {addRecipe, favoriteRecipe})(RecipeCard);
+export default connect(mapStateToProps, {addRecipe, favoriteRecipe, deleteRecipe})(RecipeCard);

@@ -2,7 +2,6 @@ export default function recipeReducer(state = {recipes: []}, action) {
   // debugger;
 
   let recipe;
-
   switch (action.type) {
 
     case 'FETCH_RECIPES':
@@ -21,6 +20,10 @@ export default function recipeReducer(state = {recipes: []}, action) {
     case 'FAVORITE_RECIPE':
     let faveStatus = !recipe.isFavorite
       return {...recipe, recipe: faveStatus}
+
+    case 'DELETE_RECIPE':
+    const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
+      return {...state, recipes}
 
     default:
       return state

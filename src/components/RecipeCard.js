@@ -17,8 +17,8 @@ class RecipeCard extends Component {
     // debugger;
     this.setState({
       recipe: {...this.state.recipe, isFavorite: !faveStatus}
-    })
-    this.props.favoriteRecipe(this.state.recipe)
+    },() => this.props.favoriteRecipe(this.state.recipe))
+
     // event.target.reset();
   }
 

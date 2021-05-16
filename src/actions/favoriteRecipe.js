@@ -1,5 +1,4 @@
 export function favoriteRecipe(recipe) {
-  let faveStatus = recipe.isFavorite
   // debugger;
 
   return (dispatch) => {
@@ -12,9 +11,10 @@ export function favoriteRecipe(recipe) {
       body: JSON.stringify(recipe)
     })
     .then(resp => resp.json())
+
     .then(data => dispatch({
       type: 'FAVORITE_RECIPE',
-      payload: data.isFavorite
+      payload: data
     }))
     .catch(err => console.log(err))
   }

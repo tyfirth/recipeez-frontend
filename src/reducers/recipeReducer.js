@@ -18,8 +18,22 @@ export default function recipeReducer(state = {recipes: []}, action) {
       return {...state, recipes: [...state.recipes, action.payload]}
 
     case 'FAVORITE_RECIPE':
-    let faveStatus = !recipe.isFavorite
-      return {...recipe, recipe: faveStatus}
+      // const faveRecipes = state.recipes.map(recipe => {
+      //   return recipe.id === action.payload.id ? (recipe.isFavorite = action.payload.isFavorite) : recipe})
+
+      const faveRecipes = state.recipes.map(recipe =>
+        {if (recipe.id === action.payload.id) {
+          console.log(recipe.isFavorite)
+          console.log(action.payload.isFavorite)
+          console.log(recipe)
+          recipe.isFavorite = action.payload.isFavorite
+          return recipe
+        } else {
+          return recipe
+        }})
+
+
+      return {recipes: faveRecipes}
 
     case 'DELETE_RECIPE':
     const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)

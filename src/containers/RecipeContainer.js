@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import RecipeForm from '../components/RecipeForm';
-import RecipeCard from '../components/RecipeCard';
+import RecipePage from '../components/RecipePage';
 import RecipeList from '../components/RecipeList'
+
 import {fetchRecipes} from '../actions/fetchRecipes';
 import {getRandomRecipes} from '../actions/getRandomRecipes';
 import {handleSearch} from '../actions/handleSearch';
 
+import {Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 class RecipeContainer extends Component {
@@ -20,8 +21,13 @@ componentDidMount() {
   render() {
     return (
       <div className='recipe-container' class='bg-yellow-100'>
-        <RecipeList recipes={this.props.recipes} />
+        <Switch>
+          <Route exact path='/' render={() => <RecipeList recipes={this.props.recipes} />} />
+
+          <Route path="/recipes/:id" component={RecipePage} />
+        </Switch>
       </div>
+
     )
   }
 

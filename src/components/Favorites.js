@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class Favorites extends Component {
-  //
-  // componentDidMount() {
-  //   let faves = this.props.recipes.filter(recipe => recipe.isFavorite = true)
-  //   console.log(faves)
-  // }
-
-
-
 
   render() {
     return (
-      <div className='favorites' class='hover:text-white'>
+      <div className='favorites' class='font-bold'>
 
         {this.props.recipes.map(recipe =>
-          <ul>
-            <li>{recipe.title}</li>
-          </ul>
+          {if (recipe.isFavorite === true){
+            return <div class='hover:text-blue-500'>
+                    <li key={recipe.id}>
+                          <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
+                    </li>
+                  </div>
+          }}
+
+
         )}
 
       </div>
@@ -26,4 +25,10 @@ class Favorites extends Component {
   }
 }
 
-export default Favorites;
+const mapStateToProps = state => {
+  return {
+    recipes: state.recipes
+  }
+}
+
+export default connect(mapStateToProps)(Favorites);
